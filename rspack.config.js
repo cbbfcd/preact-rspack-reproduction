@@ -20,22 +20,20 @@ export default {
     },
   },
   module: {
-    // Docs: https://rspack.dev/guide/tech/preact#rspackplugin-preact-refresh
     rules: [
-      // 加上这里配置就会有问题，注释掉正常
       {
         test: /\.jsx?$/,
         loader: 'builtin:swc-loader',
         options: {
           jsc: {
-            // experimental: {
-            //   plugins: [
-            //     [
-            //       '@swc/plugin-prefresh', // enable prefresh specific transformation
-            //       {}, // the customizable preact name, default is `["preact", "preact/compat", "react"]`
-            //     ],
-            //   ],
-            // },
+            experimental: {
+              plugins: [
+                [
+                  '@swc/plugin-prefresh', // enable prefresh specific transformation
+                  {}, // the customizable preact name, default is `["preact", "preact/compat", "react"]`
+                ],
+              ],
+            },
             parser: {
               syntax: 'ecmascript',
               jsx: true,
@@ -50,6 +48,7 @@ export default {
           },
         },
         type: 'javascript/auto',
+        exclude: [/node_modules\/@prefresh/, /node_modules\/preact/],
       },
       {
         test: /\.tsx?$/,
@@ -78,6 +77,7 @@ export default {
           },
         },
         type: 'javascript/auto',
+        exclude: [/node_modules\/@prefresh/, /node_modules\/preact/],
       },
       {
         test: /\.(png|svg|jpg)$/,
