@@ -48,7 +48,7 @@ export default {
           },
         },
         type: 'javascript/auto',
-        exclude: [/node_modules\/@prefresh/, /node_modules\/preact/],
+        exclude: [/node_modules\/@prefresh/, /node_modules\/preact/, /node_modules\/antd-/],
       },
       {
         test: /\.tsx?$/,
@@ -77,7 +77,7 @@ export default {
           },
         },
         type: 'javascript/auto',
-        exclude: [/node_modules\/@prefresh/, /node_modules\/preact/],
+        exclude: [/node_modules\/@prefresh/, /node_modules\/preact/, /node_modules\/antd-/],
       },
       {
         test: /\.(png|svg|jpg)$/,
